@@ -4,10 +4,17 @@ import { toast } from "sonner";
 
 const PHONE = "098986 81143";
 const PHONE_LINK = "tel:+919898681143";
-const ADDRESS = "GF-11, Aadhya Aangan, TP-4, Sardar Chok, Bhayli, Vadodara, Gujarat";
+const ADDRESS_LINE1 = "GF-11, Aadhya Aangan, TP-4,";
+const ADDRESS_LINE2 = "Sardar Chok, Bhayli, Vadodara, Gujarat";
 const MAP_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5!2d73.1!3d22.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBhayli%2C+Vadodara!5e0!3m2!1sen!2sin!4v1";
 
-const workTypes = ["Sliding Gate", "Railing", "Staircase", "Custom Fabrication", "Flag Pole", "Structural Work", "Other"];
+const workTypes = [
+  "Sliding & Main Gates",
+  "Staircase & Balcony Railings",
+  "Structural Fabrication",
+  "Flag Poles",
+  "Other Custom Metal Work",
+];
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", location: "", workType: "", message: "" });
@@ -46,7 +53,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Workshop Address</p>
-                  <p className="text-sm text-muted-foreground">{ADDRESS}</p>
+                  <p className="text-sm text-muted-foreground">{ADDRESS_LINE1}</p>
+                  <p className="text-sm text-muted-foreground">{ADDRESS_LINE2}</p>
                 </div>
               </div>
 
@@ -67,6 +75,7 @@ const ContactSection = () => {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Working Hours</p>
                   <p className="text-sm text-muted-foreground">Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                  <p className="text-sm text-muted-foreground">Sunday: Closed</p>
                 </div>
               </div>
             </div>
