@@ -9,28 +9,28 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-secondary">
+    <section id="reviews" className="py-24 lg:py-32 bg-gray-50">
       <div className="container">
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14">
             <div>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3">
                 What Our Clients Say
               </h2>
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                    <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground">5.0 / 5.0 on Google</span>
+                <span className="text-sm font-medium text-muted-foreground">5.0 / 5.0 on Google</span>
               </div>
             </div>
             <a
               href="https://www.google.com/maps/place/Brahmani+Engineering"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-background transition-colors"
+              className="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium text-foreground hover:bg-white hover:shadow-md transition-all duration-300"
             >
               View All Reviews <ArrowRight className="h-4 w-4" />
             </a>
@@ -40,16 +40,16 @@ const ReviewsSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, i) => (
             <ScrollReveal key={r.name} delay={i * 0.1}>
-              <div className="p-6 rounded-xl bg-card border border-border h-full">
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+              <div className="p-7 rounded-2xl bg-white border border-gray-200/80 h-full shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-sm text-foreground/80 leading-relaxed mb-5">"{r.text}"</p>
+                <p className="text-foreground/80 leading-relaxed mb-6 text-[15px]">"{r.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                    <span className="text-xs font-semibold text-primary-foreground">{r.name[0]}</span>
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                    <span className="text-sm font-semibold text-white">{r.name[0]}</span>
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">{r.name}</p>

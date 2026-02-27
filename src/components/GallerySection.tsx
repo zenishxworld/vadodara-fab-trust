@@ -1,39 +1,51 @@
+import ScrollReveal from "./ScrollReveal";
+import gateImg from "@/assets/project-gate.png";
+import railingImg from "@/assets/project-railing.png";
+import structuralImg from "@/assets/project-structural.png";
+import flagpoleImg from "@/assets/project-flagpole.png";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gatesImg from "@/assets/service-gates.jpg";
-import railingsImg from "@/assets/service-railings.jpg";
-import staircasesImg from "@/assets/service-staircases.jpg";
 
 const images = [
-  { src: gallery1, alt: "Before and after gate fabrication project" },
-  { src: gallery2, alt: "Decorative balcony railing installed in Vadodara" },
-  { src: gallery3, alt: "Structural steel fabrication work" },
-  { src: gatesImg, alt: "Modern sliding gate fabrication" },
-  { src: railingsImg, alt: "Stainless steel railing installation" },
-  { src: staircasesImg, alt: "Metal spiral staircase fabrication" },
+  { src: gateImg, alt: "Decorative main gate fabrication" },
+  { src: railingImg, alt: "Stainless steel staircase railing" },
+  { src: structuralImg, alt: "Industrial structural steel work" },
+  { src: flagpoleImg, alt: "National flag pole installation" },
+  { src: gallery1, alt: "Before and after gate project" },
+  { src: gallery2, alt: "Balcony railing installation" },
 ];
 
 const GallerySection = () => {
   return (
-    <section id="gallery" className="py-20 lg:py-28 bg-gradient-steel">
+    <section id="gallery" className="py-24 lg:py-32 bg-white">
       <div className="container">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold tracking-widest uppercase text-spark mb-3 block">Our Work</span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Project Gallery
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See the craftsmanship and quality that goes into every Brahmani Engineering project.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Our Craft in Action
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+              See the craftsmanship and quality that goes into every Brahmani Engineering project.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {images.map((img, i) => (
-            <div key={i} className="group relative aspect-square rounded-xl overflow-hidden shadow-trust">
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <ScrollReveal key={i} delay={i * 0.06}>
+              <div className="group relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white text-sm font-medium">{img.alt}</p>
+                </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

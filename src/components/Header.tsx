@@ -6,7 +6,7 @@ const PHONE_LINK = "tel:+919898681143";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Projects", href: "#reviews" },
+  { label: "Projects", href: "#gallery" },
 ];
 
 const Header = () => {
@@ -41,7 +41,7 @@ const Header = () => {
             <Phone className="h-4 w-4" />
             098986 81143
           </a>
-          <button onClick={scrollToForm} className="rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/90 transition-colors">
+          <button onClick={scrollToForm} className="rounded-lg border border-primary-foreground/30 bg-primary-foreground/10 px-5 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300">
             Get Quote
           </button>
         </nav>
@@ -65,7 +65,7 @@ const Header = () => {
               <Phone className="h-4 w-4" />
               098986 81143
             </a>
-            <button onClick={scrollToForm} className="w-full rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground">
+            <button onClick={scrollToForm} className="w-full rounded-lg border border-primary-foreground/30 bg-primary-foreground/10 px-5 py-2.5 text-sm font-semibold text-primary-foreground">
               Get Quote
             </button>
           </div>
