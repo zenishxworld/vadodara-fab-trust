@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, MapPin, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
+import ScrollReveal from "./ScrollReveal";
 
 const PHONE = "098986 81143";
 const PHONE_LINK = "tel:+919898681143";
@@ -39,99 +40,106 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left - Info */}
           <div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Let's Discuss Your Project
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Visit our workshop in Bhayli or call us directly. We are ready to provide a detailed, honest quote for your fabrication needs.
-            </p>
+            <ScrollReveal>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Let's Discuss Your Project
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Visit our workshop in Bhayli or call us directly. We are ready to provide a detailed, honest quote for your fabrication needs.
+              </p>
+            </ScrollReveal>
 
-            <div className="space-y-5 mb-8">
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="h-4 w-4 text-foreground" />
+            <ScrollReveal delay={0.1}>
+              <div className="space-y-5 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="h-4 w-4 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Workshop Address</p>
+                    <p className="text-sm text-muted-foreground">{ADDRESS_LINE1}</p>
+                    <p className="text-sm text-muted-foreground">{ADDRESS_LINE2}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Workshop Address</p>
-                  <p className="text-sm text-muted-foreground">{ADDRESS_LINE1}</p>
-                  <p className="text-sm text-muted-foreground">{ADDRESS_LINE2}</p>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
+                    <Phone className="h-4 w-4 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Contact Details</p>
+                    <a href={PHONE_LINK} className="text-sm text-muted-foreground hover:text-accent transition-colors">Phone: {PHONE}</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
+                    <Clock className="h-4 w-4 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Working Hours</p>
+                    <p className="text-sm text-muted-foreground">Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                    <p className="text-sm text-muted-foreground">Sunday: Closed</p>
+                  </div>
                 </div>
               </div>
+            </ScrollReveal>
 
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
-                  <Phone className="h-4 w-4 text-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Contact Details</p>
-                  <a href={PHONE_LINK} className="text-sm text-muted-foreground hover:text-accent transition-colors">Phone: {PHONE}</a>
-                </div>
+            <ScrollReveal delay={0.2}>
+              <div className="rounded-xl overflow-hidden border border-border aspect-video">
+                <iframe
+                  src={MAP_EMBED}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Brahmani Engineering Location in Bhayli, Vadodara"
+                />
               </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
-                  <Clock className="h-4 w-4 text-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Working Hours</p>
-                  <p className="text-sm text-muted-foreground">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-                  <p className="text-sm text-muted-foreground">Sunday: Closed</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Map */}
-            <div className="rounded-xl overflow-hidden border border-border aspect-video">
-              <iframe
-                src={MAP_EMBED}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Brahmani Engineering Location in Bhayli, Vadodara"
-              />
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Right - Form */}
-          <div className="bg-secondary p-8 rounded-xl">
-            <h3 className="font-display text-xl font-bold text-foreground mb-2">Get a Free Quote</h3>
-            <p className="text-sm text-muted-foreground mb-6">Fill out the form below and Nileshbhai will get back to you shortly.</p>
+          <ScrollReveal delay={0.15}>
+            <div className="bg-secondary p-8 rounded-xl">
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">Get a Free Quote</h3>
+              <p className="text-sm text-muted-foreground mb-6">Fill out the form below and Nileshbhai will get back to you shortly.</p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
-                <input type="text" required maxLength={100} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="Jane Doe" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Phone Number</label>
-                  <input type="tel" required maxLength={15} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="+91 98986 81143" />
+                  <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
+                  <input type="text" required maxLength={100} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="Jane Doe" />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">Phone Number</label>
+                    <input type="tel" required maxLength={15} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="+91 98986 81143" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">Location in Vadodara</label>
+                    <input type="text" maxLength={100} value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="e.g. Bhayli, Gotri" />
+                  </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Location in Vadodara</label>
-                  <input type="text" maxLength={100} value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition" placeholder="e.g. Bhayli, Gotri" />
+                  <label className="text-sm font-medium text-foreground mb-1.5 block">Type of Work</label>
+                  <select value={form.workType} onChange={(e) => setForm({ ...form, workType: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
+                    <option value="">Select service needed</option>
+                    {workTypes.map((t) => <option key={t} value={t}>{t}</option>)}
+                  </select>
                 </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Type of Work</label>
-                <select value={form.workType} onChange={(e) => setForm({ ...form, workType: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition">
-                  <option value="">Select service needed</option>
-                  {workTypes.map((t) => <option key={t} value={t}>{t}</option>)}
-                </select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Project Details</label>
-                <textarea maxLength={1000} rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition resize-none" placeholder="Tell us a bit about your requirement..." />
-              </div>
-              <button type="submit" disabled={sending} className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50">
-                <Send className="h-4 w-4" />
-                Submit Request
-              </button>
-            </form>
-          </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1.5 block">Project Details</label>
+                  <textarea maxLength={1000} rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition resize-none" placeholder="Tell us a bit about your requirement..." />
+                </div>
+                <button type="submit" disabled={sending} className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50">
+                  <Send className="h-4 w-4" />
+                  Submit Request
+                </button>
+              </form>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
