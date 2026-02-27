@@ -43,9 +43,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-6 text-center">
+        <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-primary-foreground/30">
             © {new Date().getFullYear()} Brahmani Engineering. All rights reserved.
+          </p>
+          <p className="text-xs text-primary-foreground/30">
+            Designed for Quality ✦
           </p>
         </div>
       </div>
