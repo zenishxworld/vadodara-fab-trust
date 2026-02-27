@@ -1,47 +1,67 @@
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 
 const reviews = [
-  { name: "Rajesh Patel", text: "Fantastic work by Nileshbhai! The sliding gate is sturdy and beautifully designed. Very professional team.", rating: 5 },
-  { name: "Priya Sharma", text: "Reasonable rates and excellent craftsmanship. The railing work was completed on time with perfect finishing.", rating: 5 },
-  { name: "Mehul Desai", text: "Nileshbhai's knowledge is superb. He understood exactly what we needed and delivered beyond expectations.", rating: 5 },
-  { name: "Anita Joshi", text: "Very professional service. Honest pricing with no hidden charges. The staircase railing looks amazing!", rating: 5 },
-  { name: "Kiran Modi", text: "Best fabrication engineer in Bhayli area. Quality materials and punctual delivery. Highly recommended!", rating: 5 },
-  { name: "Suresh Bhatt", text: "Our society gate was done perfectly. Strong build quality and modern design. Everyone in the society loved it.", rating: 5 },
+  {
+    name: "Amit P.",
+    time: "2 months ago",
+    text: "Excellent work on our society main gate. Nileshbhai was on time and very professional. The finish is top notch.",
+  },
+  {
+    name: "Rajesh D.",
+    time: "4 months ago",
+    text: "Nileshbhai and his team did a fantastic job with the staircase railings for our new bungalow. Highly recommended.",
+  },
+  {
+    name: "Sneha Patel",
+    time: "6 months ago",
+    text: "Honest pricing and superb quality. It's hard to find such reliable fabrication work in Vadodara these days.",
+  },
 ];
 
 const ReviewsSection = () => {
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-background">
+    <section id="reviews" className="py-20 lg:py-28 bg-secondary">
       <div className="container">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold tracking-widest uppercase text-spark mb-3 block">Reviews</span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What Our Customers Say
-          </h2>
-          <div className="flex items-center justify-center gap-2 mb-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-6 w-6 fill-spark text-spark" />
-            ))}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12">
+          <div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
+              What Our Clients Say
+            </h2>
+            <div className="flex items-center gap-2">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                ))}
+              </div>
+              <span className="text-sm text-muted-foreground">5.0 / 5.0 on Google</span>
+            </div>
           </div>
-          <p className="text-lg text-muted-foreground">5.0 Rating from 69+ Google Reviews</p>
+          <a
+            href="https://www.google.com/maps/place/Brahmani+Engineering"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-background transition-colors"
+          >
+            View All Reviews <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r) => (
-            <div key={r.name} className="p-6 rounded-xl bg-secondary shadow-trust">
-              <div className="flex gap-1 mb-3">
-                {[...Array(r.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-spark text-spark" />
+            <div key={r.name} className="p-6 rounded-xl bg-card border border-border">
+              <div className="flex gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-foreground/80 text-sm leading-relaxed mb-4">"{r.text}"</p>
+              <p className="text-sm text-foreground/80 leading-relaxed mb-5">"{r.text}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary-foreground">{r.name[0]}</span>
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-xs font-semibold text-primary-foreground">{r.name[0]}</span>
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">Google Review</p>
+                  <p className="text-xs text-muted-foreground">{r.time}</p>
                 </div>
               </div>
             </div>
